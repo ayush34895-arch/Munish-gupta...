@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4.7%;
+    --foreground: 40 20% 95%;
+    --card: 0 0% 4.7%;
+    --card-foreground: 40 20% 95%;
+    --popover: 0 0% 4.7%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 36 35% 63%;
+    --primary-foreground: 0 0% 4.7%;
+    --secondary: 24 30% 33%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 30 8% 68%;
+    --accent: 36 35% 63%;
+    --accent-foreground: 0 0% 4.7%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 20% 95% / 0.15;
+    --input: 40 20% 95% / 0.15;
+    --ring: 36 35% 63%;
+    --radius: 0px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-[#0B0B0D] text-[#F5F2EC] antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Headline styles */
+.headline-xl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 6vw, 96px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+
+.headline-lg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+/* Label styles */
+.label-small {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Body text */
+.body-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Grain overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* CTA Circle */
+.cta-circle {
+  width: 140px;
+  height: 140px;
+  border: 1.5px solid rgba(245, 242, 236, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.cta-circle:hover {
+  background: rgba(201, 168, 124, 0.1);
+  border-color: #C9A87C;
+  transform: scale(1.05);
+}
+
+.cta-circle span {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F5F2EC;
+}
+
+/* Section base */
+.section-pinned {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background image */
+.bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 11, 13, 0.35), rgba(11, 11, 13, 0.65));
+}
+
+/* Hairline */
+.hairline {
+  height: 1px;
+  background: rgba(245, 242, 236, 0.35);
+}
+
+/* Form styles */
+.form-input {
+  background: transparent;
+  border: 1px solid rgba(245, 242, 236, 0.25);
+  padding: 14px 18px;
+  color: #F5F2EC;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #C9A87C;
+}
+
+.form-input::placeholder {
+  color: rgba(245, 242, 236, 0.5);
+}
+
+/* Button styles */
+.btn-primary {
+  background: transparent;
+  border: 1px solid rgba(245, 242, 236, 0.35);
+  padding: 16px 32px;
+  color: #F5F2EC;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  border-color: #C9A87C;
+  background: rgba(201, 168, 124, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Navigation */
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 236, 0.8);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #C9A87C;
+}
+
+/* Index number */
+.index-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #B8B2AA;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta-circle {
+    width: 104px;
+    height: 104px;
+  }
+  
+  .cta-circle span {
+    font-size: 10px;
+  }
+}
+
+/* Smooth scroll for Lenis */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
